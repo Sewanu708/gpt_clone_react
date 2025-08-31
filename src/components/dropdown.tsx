@@ -22,7 +22,6 @@ function Wrapper({ children, className, isOpen, trigger }: { children: React.Rea
         document.addEventListener('keydown', handleKeyDown)
         return () => document.removeEventListener('keydown', handleKeyDown)
     }, [handleKeyDown, isOpen])
-    console.log(isOpen, 'isOpen')
 
     return (
         isOpen ? <div ref={wrapper} className={className}>

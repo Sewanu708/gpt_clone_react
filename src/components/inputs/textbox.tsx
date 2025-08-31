@@ -29,7 +29,6 @@ function Textbox({ input, saveInput, send, isWriting }: Textbox) {
     }, [])
 
     const handleInputChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        console.log(e.target.value)
         saveInput(e.target.value)
         const textHTMLElement = e.target
         if (textHTMLElement) {
@@ -38,6 +37,9 @@ function Textbox({ input, saveInput, send, isWriting }: Textbox) {
         }
     }, [saveInput, handleTextDynamicSize])
 
+    // useEffect(()=>{
+
+    // },[])
 
 
 

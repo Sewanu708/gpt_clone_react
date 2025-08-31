@@ -31,6 +31,12 @@ export const useSidebarToggle = create<WrapperProps>()((set) => ({
     trigger: () => set((state) => ({ isOpen: !state.isOpen }))
 }))
 
+export const useMobileSidebarToggle = create<WrapperProps>()((set) => ({
+    isOpen: true,
+    trigger: () => set((state) => ({ isOpen: !state.isOpen }))
+}))
+
+
 export const useHeaderToggle = create<WrapperProps>()((set) => ({
     isOpen: false,
     trigger: () => set((state) => ({ isOpen: !state.isOpen }))
@@ -44,15 +50,18 @@ export const useHistoryToggle = create<WrapperProps>()((set) => ({
 interface chat {
     id: string,
     user: string,
-    model: string
+    model: {text:string,createdAt:number},
 }
 export const format = (chats: chat[]) => {
     const formatted = chats.reduce((accum, chat) => {
         const user = { role: 'user', parts: [{ text: chat.user }] }
-        const model = { role: 'model', parts: [{ text: chat.model }] }
+        // if (chat.model)
+        const model = { role: 'model', parts: [{ text: chat.model.text}] }
         accum.push(user, model)
         return accum
-    }, [] as {role:string, parts:{text:string}[]}[])
+    }, [] as { role: string, parts: { text: string }[] }[])
 
+    // console.log(formatted)
     return formatted
 }
+

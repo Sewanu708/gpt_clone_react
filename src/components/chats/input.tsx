@@ -1,21 +1,44 @@
-import { GoCopy } from "react-icons/go"
+import { GoCopy } from "react-icons/go";
+import { useState } from "react";
+import Avatar from "react-avatar";
+import { LuCheck } from "react-icons/lu";
+import { useUser } from "@clerk/clerk-react";
+
 function Userinput({ input }: { input: string }) {
+    const [copied, setCopied] = useState(false);
+    const {  user } = useUser();
+    const handleCopy = async () => {
+        await navigator.clipboard.writeText(input);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1000);
+    };
+
     return (
-        <div className="w-full group flex flex-col items-end justify-end mb-12 relative px-1 sm:px-0">
-            {/* <div className="flex items-center text-zinc-400 text-sm mb-2">
-                <MdOutlineSubdirectoryArrowRight className="mr-1" />
-                <span className="truncate max-w-xs sm:max-w-sm">Hello World</span>
-            </div> */}
-            <div className="w-fit max-w-[85%] sm:max-w-[60%] px-4 py-2 bg-zinc-200 rounded-3xl text-sm sm:text-base">
-                {input}
+        <div className="md:w-[70%] w-fit max-w-[32rem] flex flex-col gap-2 items-start justify-start   relative ">
+            <div>
+                <Avatar
+                    color="#71717b"
+                    name={`${user?.firstName}`}
+                    round
+                    size="25"
+                />
             </div>
-            <div
-                className="absolute -bottom-6 right-2 opacity-0 group-hover:opacity-100 flex items-center text-sm cursor-pointer text-zinc-500 hover:text-black transition-all duration-200 z-10"
-            >
-                {/* {copied ? <FaCheck /> : <GoCopy />} */}<GoCopy />
+            <div className="w-full   ml-8 group relative flex flex-col items-start justify-start  px-1 sm:px-0">
+                <div className=" px-4 py-1 text-sm shadow-sm rounded-md bg-zinc-200 max-w-full break-words">
+                    {input}
+                </div>
+                <div
+                    role="button"
+                    aria-label="Copy message"
+                    onClick={handleCopy}
+                    className="mt-2 opacity-0 group-hover:opacity-100 flex items-center text-sm cursor-pointer text-zinc-500 hover:text-black transition-all duration-200 z-10"
+                >
+                    {copied ? <LuCheck /> : <GoCopy />}
+                    {copied && <span className="ml-1 text-xs">Copied!</span>}
+                </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Userinput
+export default Userinput;

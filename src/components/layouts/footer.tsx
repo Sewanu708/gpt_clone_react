@@ -8,7 +8,7 @@ function Footer() {
             Privacy Policy </span>
     </div>
 
-    const mainFooter = <div className="text-[12px] text-zinc-500"> 
+    const mainFooter = <div className="sm:text-[12px] text-[8px]  text-zinc-500"> 
         {model} can make mistakes. Check important info
     </div>
 

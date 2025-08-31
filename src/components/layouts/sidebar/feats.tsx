@@ -39,23 +39,32 @@ function Features({ isOpen }: { isOpen: boolean }) {
     }]
     return <div className="w-full mt-8">
         {
-            isOpen && <div className="text-sm  text-zinc-600 px-2 mb-1">
+            isOpen &&
+            <div className="text-sm  text-zinc-600 px-2 mb-1">
                 Feats
             </div>
         }
         {
-            feats.map((feat, index) => <div className={`p-2 rounded-lg cursor-pointer hover:bg-zinc-100 flex items-center ${isOpen ? 'justify-start' : 'justify-center'} gap-2`} key={index} onClick={feat.action}>
-                <div>
-                    <feat.icon className="w-4 h-4 text-zinc-600" />
+            feats.map((feat, index) =>
+                <div className={`p-2 rounded-lg cursor-pointer hover:bg-zinc-100 flex items-center 
+                    ${isOpen ? 'justify-start' : 'justify-center'} gap-2`}
+                    key={index}
+                    onClick={feat.action}
+                >
+                    <div>
+                        <feat.icon
+                            className="w-4 h-4 text-zinc-600"
+                        />
 
-                </div>
-                {
-                    isOpen && <div className="text-sm font-500">
-                        {feat.name}
                     </div>
-                }
+                    {
+                        isOpen &&
+                        <div className="text-sm font-500">
+                            {feat.name}
+                        </div>
+                    }
 
-            </div>)
+                </div>)
         }
 
 
