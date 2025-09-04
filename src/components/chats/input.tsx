@@ -14,7 +14,7 @@ function Userinput({ input }: { input: string }) {
     };
 
     return (
-        <div className="md:w-[70%] w-fit max-w-lg flex flex-col gap-2 items-start justify-start   relative ">
+        <div className=" md:w-[70%] msm:max-w-[2rem] flex flex-col gap-2 items-start justify-start relative">
             <div>
                 <Avatar
                     color="#71717b"

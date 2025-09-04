@@ -41,12 +41,12 @@ function MainPage() {
 
 
             <div className="flex items-center justify-center gap-2 mt-8">
-                <div className="bg-[#f5fc9d] hover:scale-95 transition-all duration-300 ease-in-out rounded-full w-fit py-2 px-4 font-semibold cursor-pointer sm:text-xl text-sm">
+                <Link to={'/auth/sign-in'} className="bg-[#f5fc9d] hover:scale-95 transition-all duration-300 ease-in-out rounded-full w-fit py-2 px-4 font-semibold cursor-pointer sm:text-xl text-sm">
                     GET STARTED
-                </div>
-                <div className="p-2 hover:scale-95 transition-all duration-300 ease-in-out cursor-pointer rounded-full w-fit bg-white">
+                </Link>
+                <Link to={'/auth/sign-in'} className="p-2 hover:scale-95 transition-all duration-300 ease-in-out cursor-pointer rounded-full w-fit bg-white">
                     <LuArrowUpRight className="sm:text-xl text-sm" />
-                </div>
+                </Link>
             </div>
         </div>
     )
