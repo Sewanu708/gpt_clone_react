@@ -32,7 +32,7 @@ export const useSidebarToggle = create<WrapperProps>()((set) => ({
 }))
 
 export const useMobileSidebarToggle = create<WrapperProps>()((set) => ({
-    isOpen: true,
+    isOpen: false,
     trigger: () => set((state) => ({ isOpen: !state.isOpen }))
 }))
 

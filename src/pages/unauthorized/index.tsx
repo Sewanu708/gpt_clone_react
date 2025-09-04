@@ -11,7 +11,7 @@ function Default() {
     const { isSignedIn, isLoaded } = useUser();
     const isOpen = useMobileSidebarToggle((state) => state.isOpen)
     if (!isLoaded) {
-        return <div>Loading...</div>;
+        return <MainPage/>;
     }
     if (!isSignedIn) {
         return <MainPage/>
@@ -27,7 +27,7 @@ function Default() {
             }
         </div>
 
-        <main className="flex-1 w-full h-[100vh] flex flex-col">
+        <main className="flex-1 w-full h-[100dvh] flex flex-col">
             <Navbar />
             <div className='flex-1 overflow-hidden'>
                 <Outlet />
