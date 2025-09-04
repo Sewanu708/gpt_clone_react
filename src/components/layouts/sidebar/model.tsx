@@ -1,7 +1,9 @@
+'use client'
 import { LuCheck } from "react-icons/lu"
 import { useModel, useModels } from "../../../store/model"
 import { useHeaderToggle } from "../../../store/utils"
 import { aiModels } from "../../../data"
+import { useEffect } from "react"
 
 
 function Model() {
@@ -15,6 +17,13 @@ function Model() {
         closeDropdown()
     }
 
+    useEffect(() => {
+        const defaultModel = aiModels.google.at(0)?.name
+        if (selectedmodel.length < 1)
+            // @ts-ignore
+            saveSelectedmodel(defaultModel)
+    }, [])
+
     return (
         <div className="w-64 p-2 rounded-lg bg-white shadow-sm">
             <div className="text-sm  text-zinc-600 px-2 mb-1">
@@ -23,8 +32,10 @@ function Model() {
 
             {
                 models.map((model, index) => {
-                    const matchedmodel = model.name === selectedmodel
-                    return <div className='p-2 rounded-lg cursor-pointer hover:bg-zinc-100 flex items-center justify-between w-full' key={index} onClick={() => saveModel(model.name)}>
+                    const matchedmodel = (model.name === selectedmodel) 
+                    return <div className='p-2 rounded-lg cursor-pointer hover:bg-zinc-100 flex items-center justify-between w-full' key={index} onClick={() => {
+                        saveModel(model.name)
+                    }}>
                         <div className="flex items-center justify-start gap-2">
                             <div className="text-sm font-500">
                                 {model.name}

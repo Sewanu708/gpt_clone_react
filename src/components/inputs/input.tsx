@@ -184,7 +184,7 @@ function Input({ newChat = false, existingID }: { newChat?: boolean, existingID?
 
 
     return (
-        <div className=" md:w-full w-full mb-3 rounded-3xl border border-zinc-500 bg-white shadow-sm">
+        <div className=" md:w-2xl lg:3xl sm:w-lg msm:w-md xsm:w-sm w-sm mb-3 rounded-3xl border border-zinc-500 bg-white shadow-sm">
             <form className="w-full px-3 flex items-center justify-between">
                 <Textbox isWriting={isWriting} input={input} send={handleSend} saveInput={saveInput} />
                 <Actions send={handleSend} stop={stop} />
@@ -194,8 +194,3 @@ function Input({ newChat = false, existingID }: { newChat?: boolean, existingID?
 }
 
 export default React.memo(Input)
-
-
-// make messages an array
-// for regenerate messages add
-// 

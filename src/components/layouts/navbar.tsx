@@ -7,6 +7,7 @@ import Model from "./sidebar/model";
 import { useHeaderToggle, useMobileSidebarToggle } from "../../store/utils";
 import { useModel } from "../../store/model";
 import { LuAlignLeft } from "react-icons/lu";
+import { aiModels } from "../../data";
 
 
 function Navbar() {
@@ -14,17 +15,17 @@ function Navbar() {
     const closeDropdown = useHeaderToggle((state) => state.trigger)
     const trigger = useMobileSidebarToggle((state) => state.trigger)
     const selectedmodel = useModel(state => state.model)
+
+    const defaultModel = aiModels.google.at(0)?.name
     return (
         < nav className="w-full flex items-center justify-between py-4 border-b-2 border-b-zinc-100 px-4 md:px-12  bg-white" >
             <div className="flex gap-1.5 items-center justify-center">
-                {/* <PiSidebarLight className="text-[18px] text-zinc-800  flex" />
-                */}
                 <LuAlignLeft className="text-[18px] text-zinc-800 block md:hidden cursor-pointer" onClick={(e)=>{
-                    e.stopPropagation()
+                    e.stopPropagation() 
                     trigger()
                 }}/>
                 <div className="flex items-center justify-center font-semibold hover:bg-zinc-50 px-2 py-1 rounded-sm cursor-pointer" onClick={closeDropdown}>
-                    <span className="text-sm">{selectedmodel}</span>
+                    <span className="text-sm">{selectedmodel || defaultModel}</span>
                     <IoIosArrowDown className=" text-zinc-500 ml-1" />
                 </div>
             </div>

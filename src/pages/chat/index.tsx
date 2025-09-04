@@ -120,13 +120,13 @@ function ChatRoom({ chatId }: { chatId: string }) {
                                 <Userinput input={chat.user} />
                                 <ModelOutput
                                     modelResponse={chat.model}
-                                    loading={false}
+                                    loading={chat.model.text.length < 1}
                                     agent={chat.agent}
                                     id={chat.id}
                                 />
                             </div>
                         })}
-                        <div ref={bottomRef}  />
+                        <div ref={bottomRef} />
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ function ChatRoom({ chatId }: { chatId: string }) {
                 </div>
             </div>
 
-            <div className="md:hidden block border-t border-gray-200  mx-auto w-full px-2  py-1 ">
+            <div className="md:hidden  border-t border-gray-200 flex items-center justify-center w-full px-2  py-1 ">
                 <Input existingID={chatId} />
             </div>
         </div >

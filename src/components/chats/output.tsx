@@ -47,7 +47,7 @@ function ModelOutput({ modelResponse, loading, agent, id }: { modelResponse: { t
             </div>
             {
                 loading ?
-                    <div className="bg-black ai-loading ml-8" /> :
+                    <div className="bg-black ai-loading ml-8"/> :
                     <div className="select-text ml-8 shadow-sm px-2 py-1 rounded-sm text-sm">
                         <Markdown text={modelResponse.text}/>
                     </div>

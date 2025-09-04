@@ -26,7 +26,8 @@ interface UserInput {
     createRoomForRegeneratedResponse: (chatId: string, messageId: string) => void,
     SetMessageDetails: (chatId: string, messageId: string, createdAt: number) => void,
     messageDetails: MessageDetails[],
-    deleteChat: (chatId: string) => void
+    deleteChat: (chatId: string) => void,
+    deleteUnsedChats: () => void
 }
 
 export interface Conversation {
@@ -231,14 +232,17 @@ export const useChatConfig = create<UserInput>()(
                 delete chats[chatId]
                 const updatedChat = { ...chats }
                 const chatIds = [...state.chatIds]
-                const newChatId = chatIds.filter(id=>id!=chatId)
+                const newChatId = chatIds.filter(id => id != chatId)
                 const titles = [...state.title]
-                const newTitles = titles.filter(title=>title.id!=chatId)
+                const newTitles = titles.filter(title => title.id != chatId)
                 return {
                     user: updatedChat,
-                    chatIds:newChatId,
-                    title:newTitles
+                    chatIds: newChatId,
+                    title: newTitles
                 }
+            }),
+            deleteUnsedChats: ()=>set((state)=>{
+                return state
             })
         }), {
         name: 'userinput',

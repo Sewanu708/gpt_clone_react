@@ -7,13 +7,20 @@ import { useModels } from "../../../store/model";
 import Avatar from "react-avatar";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
 import { LuLogOut } from "react-icons/lu";
+// import { useChatConfig } from "../../../store/user";
 
 export default function Sidebar() {
     const { user } = useUser();
+    // const chats = useChatConfig((state)=>state.user)
     const isOpen = useSidebarToggle((state) => state.isOpen)
     const closeSidebar = useSidebarToggle((state) => state.trigger)
     const selectedmodel = useModels(state => state.ai)
     const sidebartriggerstyles = isOpen ? ' left-62 w-4 top-4 h-4 ' : 'w-8 h-8 top-4 left-[18px] cursor-e-resize  items-center justify-center group'
+
+
+    // const deleteUnsedChats = () => {
+
+    // }
 
     return (
         <div className={` p-2  h-[100dvh] flex flex-col justify-between z-10 l-0  bg-zinc-50 border-l-2 ${isOpen ? 'w-64' : 'w-16 cursor-e-resize'}`}>
