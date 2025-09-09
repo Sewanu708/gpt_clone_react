@@ -17,6 +17,7 @@ landing page
 delete unused chat
 <!-- dont create new chat on click of new chat. Rather create when user sends first input -->
 model selection
+esc trigger
 
 
 think
