@@ -1,7 +1,6 @@
 import { LuAlignJustify, LuArrowUpRight, LuUser } from "react-icons/lu"
 import life from '../../../public/Group 1.svg'
 import { Link } from "react-router-dom"
-// import Hero from "./hero"
 import { lazy, Suspense } from "react"
 
 

@@ -25,8 +25,7 @@ function Chats({ chat, chat_id }: { chat: { id: string, header: string }, chat_i
 
     return <Link to={`/chats/${chat.id}`}
         key={chat.id}
-        className={` 
-                                ${(chat.id == chat_id) ? 'bg-zinc-200 text-zinc-400' :
+        className={` ${(chat.id == chat_id) ? 'bg-zinc-200 text-zinc-400' :
                 'bg-zinc-50 text-zinc-500'} rounded-xl w-full py-1 px-2 text-sm flex items-center justify-between  cursor-pointer hover:bg-zinc-100 relative hover:text-zinc-500 group`
         }
 
@@ -36,7 +35,7 @@ function Chats({ chat, chat_id }: { chat: { id: string, header: string }, chat_i
             {chat.header}
         </div>
         <div
-            className="w-[10%] hidden group-hover:block"
+            className="w-[10%]"
             onClick={trigger}>
             <BiDotsVerticalRounded />
         </div>
